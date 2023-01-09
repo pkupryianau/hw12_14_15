@@ -25,7 +25,7 @@ data "aws_eks_cluster_auth" "cluster" {
 }
 
 locals {
-  cluster_name = "learnk8s"
+  cluster_name = "aws_eks"
 }
 
 provider "kubernetes" {
@@ -51,7 +51,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "3.18.1"
 
-  name                 = "k8s-vpc"
+  name                 = "eks-vpc"
   cidr                 = "172.16.0.0/16"
   azs                  = data.aws_availability_zones.available.names
   private_subnets      = ["172.16.1.0/24", "172.16.2.0/24", "172.16.3.0/24"]
