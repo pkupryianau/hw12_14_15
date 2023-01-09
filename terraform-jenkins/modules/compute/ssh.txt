@@ -1,0 +1,5 @@
+ssh-keygen -t rsa -b 4096 -m pem -f tutorial_kp && mv tutorial_kp.pub modules/compute/tutorial_kp.pub && mv tutorial_kp tutorial_kp.pem && chmod 400 tutorial_kp.pem
+
+
+ssh -i tutorial_kp.pem ubuntu@$(terraform output -raw jenkins_public_ip)
+curl http://169.254.169.254/latest/user-data
